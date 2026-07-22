@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-parchment text-bedrock dark:bg-bedrock dark:text-parchment antialiased;
+  }
+
+  /* Visible keyboard focus everywhere -- accessibility floor, not optional */
+  :focus-visible {
+    @apply outline-none ring-2 ring-loam dark:ring-horizon-top ring-offset-2 ring-offset-parchment dark:ring-offset-bedrock;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .hairline-border {
+    @apply shadow-hairline dark:shadow-none dark:ring-1 dark:ring-parchment/10;
+  }
+
+  .horizon-strip {
+    @apply flex h-3 w-full overflow-hidden rounded-full;
+  }
+}
